@@ -23,7 +23,7 @@
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
-        android:text="Hello World!" />
+        android:text="自定义Transition" />
 
     <TextView
         android:id="@+id/tv_three"

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.zhaogaofei.transitiontest.ui.CustomerTransitionActivity;
 import com.example.zhaogaofei.transitiontest.ui.TransitionOneActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_two).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                CustomerTransitionActivity.start(MainActivity.this);
             }
         });
 

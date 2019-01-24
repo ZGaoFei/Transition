@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.TransitionOneActivity" />
+        <activity android:name=".ui.CustomerTransitionActivity"></activity>
     </application>
 
 </manifest>
