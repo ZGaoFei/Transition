@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.transition.TransitionStartActivity">
+
+    <TextView
+        android:id="@+id/tv_skip_to_next"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="start activity"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_text_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="遇到喜欢的人一定要表白，你丑没关系，万一他瞎呢 ​。"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_skip_to_next" />
+
+    <TextView
+        android:id="@+id/tv_text_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="一女晚上外出打麻将，半夜回家怕吵醒丈夫，便在客厅把衣服脱了个精光，轻轻走进卧室，不料丈夫惊醒，见此大吃一惊：我R你先人的，打好大的牌，输成这个样子！"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_one" />
+
+    <TextView
+        android:id="@+id/tv_text_three"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="话说有一大学女生，和男友分手，说：“我又找了个体育系的男朋友，咱交往一年，你得给我2K元青春损失费。”男生惧怕其“体育系新男友”，又想找个方式出口气。交钱那天，姑娘与新男友到场，前男友带了10个男生，每人走过来给姑娘二百块钱，三四个过后姑娘就哭得不行了，新男友也分了。"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_text_four"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_two" />
+
+    <TextView
+        android:id="@+id/tv_text_four"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="一日，和一帮朋友去一小饭馆吃饭。点菜时，一哥们（光棍）见服务员长的标致便想趁机多聊几句。兄弟：“小姐，有炒鸡蛋吗？”小姐：“有的。”兄弟：“那有炒鸭蛋吗？”小姐：“也有的。”兄弟：“那来一个鸡蛋炒鸭蛋吧！”小姐：“行啊，混蛋一个……”"
+        app:layout_constraintLeft_toRightOf="@+id/tv_text_three"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_two" />
+
+    <ImageView
+        android:id="@+id/iv_image_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="15dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_three"
+        android:src="@mipmap/angle"/>
+
+</android.support.constraint.ConstraintLayout>

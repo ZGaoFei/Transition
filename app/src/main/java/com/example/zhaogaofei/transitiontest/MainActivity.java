@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.zhaogaofei.transitiontest.ui.CustomerTransitionActivity;
 import com.example.zhaogaofei.transitiontest.ui.OtherAnimationEffectActivity;
 import com.example.zhaogaofei.transitiontest.ui.TransitionOneActivity;
+import com.example.zhaogaofei.transitiontest.ui.transition.TransitionStartActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_four).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                TransitionStartActivity.start(MainActivity.this);
             }
         });
     }

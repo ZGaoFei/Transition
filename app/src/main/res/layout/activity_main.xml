@@ -41,6 +41,6 @@
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
-        android:text="Hello World!" />
+        android:text="activity 页面 transition" />
 
 </LinearLayout>

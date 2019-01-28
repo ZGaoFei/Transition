@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".ui.TransitionOneActivity" />
         <activity android:name=".ui.CustomerTransitionActivity" />
-        <activity android:name=".ui.OtherAnimationEffectActivity"></activity>
+        <activity android:name=".ui.OtherAnimationEffectActivity" />
+        <activity android:name=".ui.transition.TransitionStartActivity" />
+        <activity android:name=".ui.transition.TransitionEndActivity"></activity>
     </application>
 
 </manifest>
