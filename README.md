@@ -54,3 +54,5 @@ XML使用方式
 
 onPreDraw()方法调用的时机？？？
 
+https://www.jianshu.com/p/e497123652b5
+
