@@ -62,41 +62,47 @@
             android:layout_width="match_parent"
             android:layout_height="400dp">
 
-            <ImageView
+            <View
                 android:id="@+id/iv_timo0"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="80dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="@mipmap/timu"/>
 
-            <ImageView
+            <View
                 android:id="@+id/iv_timo1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="right|top"
                 android:layout_marginTop="80dp"
                 android:layout_marginRight="80dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="@mipmap/timu2"/>
 
-            <ImageView
+            <View
                 android:id="@+id/iv_angle"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|left"
                 android:layout_marginLeft="80dp"
                 android:layout_marginBottom="80dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="@mipmap/angle"/>
 
-            <ImageView
+            <View
                 android:id="@+id/iv_jiansheng"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="bottom|right"
                 android:layout_marginBottom="80dp"
                 android:layout_marginRight="80dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="@mipmap/jiansheng"/>
+
+            <Button
+                android:id="@+id/bt_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xml 实现"/>
 
         </FrameLayout>
 

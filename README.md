@@ -21,38 +21,134 @@
 
 
 
-基本使用方法
+##### 基本使用方法
 
-Transition 框架相关类
+> Transition 框架相关类
 
     Scene
+    Scene类存储着一个根view下的各种view的属性。
+    通常由getSceneForLayout (ViewGroup sceneRoot,int layoutId,Context context)获取
+    sceneRoot：scene发生改变和动画执行的位置
+    layoutId：即上文所说的根view
+    根据起始scene和结束scene来创建过渡动画，两个scene的ID应该一直，视为同一个view
+    Transition框架可以实现在starting scene和ending scene之间执行动画。
+    而且大多数情况下，我们不需要创建starting scene，因为starting scene通常由当前UI状态决定，我们只需要创建ending scene。
+
 
     Transition
+    用来设置过渡动画效果用的，并且提供了一系列的实现效果
+
+
     子类：
     AutoTransition
+    Transition实现效果，默认实现效果
+    对应xml tag为autoTransition
+    addTransition(new Fade(Fade.OUT)).
+    addTransition(new ChangeBounds()).
+    addTransition(new Fade(Fade.IN));
+
+
     ChangeBounds
+    Transition实现效果
+    对应xml tag为changeBounds
+    检测view的位置边界创建移动和缩放动画
+
+
     ChangeClipBounds
+    Transition实现效果
+    对应xml tag为changeClipBounds
+    检测view的剪切区域的位置边界，和ChangeBounds类似。
+    不过ChangeBounds针对的是view而ChangeClipBounds针对的是view的剪切区域(setClipBound(Rect rect) 中的rect)。
+    如果没有设置则没有动画效果。
+    其rect必须表示一个矩形，如 new Rect(150, 150, 250, 250)
+    如果矩形坐标点重合，则动画执行完会回到默认状态
+
+
     ChangeImageTransform
+    Transition实现效果
+    对应xml tag为changeImageTransform
+    检测ImageView（这里是专指ImageView）的尺寸，
+    位置以及ScaleType，并创建相应动画。
+
+
     ChangeScroll
+    Transition实现效果
+    对应xml tag为changeScroll
+    作用对象：View的scroll属性值
+    参考：TransitionOneActivity.initChangeScroll();
+
+
     ChangeTransform
+    Transition实现效果
+    对应xml tag 为changeTransform
+    检测view的scale和rotation创建缩放和旋转动画
+
+
     Visibility
+    Transition实现效果
         Explode
+        对应xml tag为explode
+        作用对象：View的Visibility
+        爆炸动画
+
         Fade
+        对应xml tag为fade
+        作用对象：View的Visibility
+        可以在初始化是指定IN或者OUT分别对应淡入和淡出，若不指定默认为淡入淡出效果
+
         Slide
+        对应xml tag为slide
+        作用对象：View的Visibility
+        平移
+
     PathMition
+    Transition实现效果
+
         ArcMotion
+        对应xml tag为arcMotion
         PatternPathMotion
+        对应xml tag为patternPathMotion
+        以path的方式指定过渡效果，会形成一定的圆弧路径
+        参考：TransitionOneActivity.initPathMotion();
+
+
     TransitionSet
+    Transition实现效果
+    对应xml tag为transitionSet
+    通过
+    new TransitionSet().addTransition(transition);
+    来添加，组合多个效果
 
 
     TransitionManager
+    Transition动画开始执行的manager
+    两种方式开始执行动画
+    1、TransitionManager.go()
+        一直都是根据xml文件创造start scene和end scene来触发动画效果
+        内部实际是先后调用了start scene的exit()方法，然后调用end scene的enter()方法
+        然后执行动画播放效果
+
+    2、TransitionManager.beginDelayedTransition()
+        通过代码改变view的属性，然后通过ChangeBounds等类分析start scene和end Scene不同来创建动画
 
 
-使用场景
+##### XML使用方式
 
-XML使用方式
+    每一种Transition实现类都对应一个xml的tag值，如上
+    在res下创建文件夹transition，将所有的transition的xml全部放入这个文件夹下
+    参考：transition_set.xml
+    另外其他属性如：
+    duration
+    startDelay
+    interpolator
+    transitionOrdering
+    matchOrder
 
-onPreDraw()方法调用的时机？？？
+    使用
+    TransitionInflater.from(this).inflateTransition(R.transition.transition_set);
+    方式获取transition对象，然后再使用go或者beginDelayedTransition方法实现动画
 
-https://www.jianshu.com/p/e497123652b5
+
+
+[参考](https://www.jianshu.com/p/e497123652b5)
 

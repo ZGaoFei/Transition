@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <View
         android:id="@+id/iv_scene1"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -11,9 +11,9 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:rotation="180"
-        android:src="@mipmap/timu" />
+        android:background="@mipmap/timu" />
 
-    <ImageView
+    <View
         android:id="@+id/iv_scene2"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -21,6 +21,6 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:rotation="180"
-        android:src="@mipmap/timu2" />
+        android:background="@mipmap/timu2" />
 
 </FrameLayout>

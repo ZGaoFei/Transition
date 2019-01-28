@@ -11,6 +11,7 @@ import android.transition.ChangeImageTransform;
 import android.transition.ChangeTransform;
 import android.transition.Explode;
 import android.transition.Scene;
+import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
@@ -43,6 +44,8 @@ public class OtherAnimationEffectActivity extends AppCompatActivity implements V
         initSceneTwoView();
 
         initLOLView();
+
+        initXMLView();
     }
 
     /**
@@ -105,10 +108,10 @@ public class OtherAnimationEffectActivity extends AppCompatActivity implements V
 
 
     private FrameLayout frameLayout;
-    private ImageView ivTimo0;
-    private ImageView ivTimo1;
-    private ImageView ivAngel;
-    private ImageView ivJiansheng;
+    private View ivTimo0;
+    private View ivTimo1;
+    private View ivAngel;
+    private View ivJiansheng;
 
     private boolean isBigImage = false;
     private void initLOLView() {
@@ -170,4 +173,29 @@ public class OtherAnimationEffectActivity extends AppCompatActivity implements V
                 break;
         }
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void initXMLView() {
+        final Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.transition_set);
+        Button button = findViewById(R.id.bt_xml);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initXML(transition);
+            }
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void initXML(Transition transition) {
+        TransitionManager.beginDelayedTransition(frameLayout, transition);
+
+        changeViewParams(ivTimo0);
+        View[] views = new View[]{ivTimo0, ivTimo1, ivAngel, ivJiansheng};
+        for (View view : views) {
+            view.setVisibility(view.getVisibility() == View.VISIBLE ? View.INVISIBLE : View.VISIBLE);
+        }
+        ivTimo0.setVisibility(View.VISIBLE);
+    }
+
 }

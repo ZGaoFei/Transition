@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <changeBounds>
+        <targets>
+            <target android:targetId="@+id/iv_timo0"/>
+        </targets>
+    </changeBounds>
+    <explode>
+        <targets>
+            <target android:targetId="@+id/iv_timo0" />
+            <target android:targetId="@+id/iv_timo1" />
+            <target android:targetId="@+id/iv_angle" />
+            <target android:targetId="@+id/iv_jiansheng" />
+        </targets>
+    </explode>
+
+    <!--<patternPathMotion></patternPathMotion>
+
+    <arcMotion></arcMotion>
+
+    <changeBounds></changeBounds>
+
+    <autoTransition></autoTransition>
+
+    <changeClipBounds></changeClipBounds>
+
+    <changeImageTransform></changeImageTransform>
+
+    <changeScroll></changeScroll>
+
+    <changeTransform></changeTransform>
+
+    <explode></explode>
+
+    <slide></slide>
+
+    <fade></fade>
+
+    <transitionSet
+        android:duration="10"
+        android:startDelay="10"
+        android:interpolator=""
+        android:transitionOrdering="together"
+        android:matchOrder=""></transitionSet>-->
+
+</transitionSet>
