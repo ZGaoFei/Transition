@@ -67,9 +67,10 @@ public class TransitionEndActivity extends AppCompatActivity {
     private void initView() {
         TextView textView = findViewById(R.id.tv_return_top);
         textView.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                finish();
+                finishAfterTransition();
             }
         });
     }

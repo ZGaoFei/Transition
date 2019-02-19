@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.zhaogaofei.transitiontest.ui.CustomerTransitionActivity;
 import com.example.zhaogaofei.transitiontest.ui.OtherAnimationEffectActivity;
 import com.example.zhaogaofei.transitiontest.ui.TransitionOneActivity;
+import com.example.zhaogaofei.transitiontest.ui.transition.ShareElementTransitionStartActivity;
 import com.example.zhaogaofei.transitiontest.ui.transition.TransitionStartActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TransitionStartActivity.start(MainActivity.this);
+            }
+        });
+
+        findViewById(R.id.tv_five).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareElementTransitionStartActivity.start(MainActivity.this);
             }
         });
     }

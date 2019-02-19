@@ -11,36 +11,45 @@
         android:id="@+id/tv_one"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center"
         android:background="@color/colorAccent"
-        android:textColor="#ffffff"
-        android:text="基本使用和基本类使用效果" />
+        android:gravity="center"
+        android:text="基本使用和基本类使用效果"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/tv_two"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
-        android:text="自定义Transition" />
+        android:gravity="center"
+        android:text="自定义Transition"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/tv_three"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center"
         android:background="@color/colorAccent"
-        android:textColor="#ffffff"
-        android:text="相同的方法实现不同效果" />
+        android:gravity="center"
+        android:text="相同的方法实现不同效果"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/tv_four"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="center"
         android:background="@color/colorPrimary"
-        android:textColor="#ffffff"
-        android:text="activity 页面 transition" />
+        android:gravity="center"
+        android:text="activity 页面 transition"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/tv_five"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="共享元素的过渡动画"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.transition.ShareElementTransitionStartActivity">
+
+    <TextView
+        android:id="@+id/tv_share_element_start"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="angle baby"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_element_start_next"
+        app:layout_constraintLeft_toRightOf="@+id/iv_share_element_start" />
+
+    <ImageView
+        android:id="@+id/iv_share_element_start"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/angle"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_element_start_next" />
+
+    <TextView
+        android:id="@+id/tv_share_element_start_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="skip to next" />
+
+    <TextView
+        android:id="@+id/tv_share_element_start_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="一个胖子从十二楼摔了下来,——结果就变成了,死胖子！"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_share_element_start" />
+
+    <TextView
+        android:id="@+id/tv_share_element_start_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="一个糖,在北极走著走著,觉得他好冷,——于是就变成了冰糖。"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_element_start_one" />
+
+    <TextView
+        android:id="@+id/tv_share_element_start_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="母亲从幼儿园接出女儿，回家的路上问：“今天老师教什麽英语了？” 女儿说：“大雪碧。”母亲百思不得其解，第二天到幼儿园问老师，老师说：“昨天教的大写‘B’。”"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_element_start_two" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/timu"
+        app:layout_constraintTop_toBottomOf="@+id/tv_share_element_start_three" />
+
+</android.support.constraint.ConstraintLayout>

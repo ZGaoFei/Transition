@@ -8,7 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:windowActivityTransitions">true</item>
+        <!-- 让进入动画和返回动画有效果 -->
         <item name="android:windowAllowEnterTransitionOverlap">false</item>
         <item name="android:windowAllowReturnTransitionOverlap">false</item>
+
+        <item name="android:windowContentTransitions">true</item>
     </style>
 </resources>

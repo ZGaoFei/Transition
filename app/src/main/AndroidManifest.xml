@@ -20,7 +20,10 @@
         <activity android:name=".ui.CustomerTransitionActivity" />
         <activity android:name=".ui.OtherAnimationEffectActivity" />
         <activity android:name=".ui.transition.TransitionStartActivity" />
-        <activity android:name=".ui.transition.TransitionEndActivity"></activity>
+        <activity android:name=".ui.transition.TransitionEndActivity" />
+        <activity android:name=".ui.transition.ShareElementTransitionStartActivity" />
+        <activity android:name=".ui.transition.ShareElementTransitionEndActivity" />
+        <activity android:name=".ui.transition.ShareElementTransitionNextActivity"></activity>
     </application>
 
 </manifest>

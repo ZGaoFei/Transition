@@ -149,6 +149,21 @@
     方式获取transition对象，然后再使用go或者beginDelayedTransition方法实现动画
 
 
+##### Content Transition
 
-[参考](https://www.jianshu.com/p/e497123652b5)
+
+
+##### Share Element Transition
+
+
+    问题：退出时点击返回虚拟键会有回退的动画效果，调用finish()方法时，需要将此方法替换为finishAfterTransition()
+
+
+ViewOverlay???
+
+[Android Transition Framework详解---超炫的动画框架](https://www.jianshu.com/p/e497123652b5)
+
+[Android 转场动画Transition 、Share Elements](https://www.jianshu.com/p/10a820329959)
+
+[Material Designer的低版本兼容实现（五）—— ActivityOptionsCompat](https://www.cnblogs.com/tianzhijiexian/p/4087917.html)
 
