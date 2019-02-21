@@ -49,7 +49,6 @@ public class TransitionStartActivity extends AppCompatActivity {
     private void initView() {
         TextView textView = findViewById(R.id.tv_skip_to_next);
         textView.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 TransitionEndActivity.startWithTransition(TransitionStartActivity.this);

@@ -148,18 +148,142 @@
     TransitionInflater.from(this).inflateTransition(R.transition.transition_set);
     方式获取transition对象，然后再使用go或者beginDelayedTransition方法实现动画
 
+##### 页面Transition
+
+> 在使用Content Transition 和 Share Element Transition之前需要进行相应的配置
+
+    主题设置方式
+    在res文件夹下创建一个新的values-v21文件夹，然后创建一个styles.xml
+    此styles文件和values文件夹下的styles一致
+    在application使用的theme中添加如下配置（如本项目app使用的主题是AppTheme）：
+    <item name="android:windowActivityTransitions">true</item>
+    <!-- 让进入动画和返回动画有效果 -->
+    <item name="android:windowAllowEnterTransitionOverlap">false</item>
+    <item name="android:windowAllowReturnTransitionOverlap">false</item>
+
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowSharedElementsUseOverlay">true</item>
+
+    或者使用代码进行配置
+    getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+
+    注意：本项目测试中发现，这两种方式如果都不进行设置，一样可以出现动画效果，
+    有可能系统默认已经设置了，上面的设置依据情况而定
+
+    认识一些基本的类，后面会做介绍：
+
+    ActivityCompat
+
+    ActivityOptionsCompat
+
 
 ##### Content Transition
 
+具体实现参考：[Android Transition Framework详解---超炫的动画框架](https://www.jianshu.com/p/e497123652b5)
 
+    可以通过代码中设置相关动画效果：
+
+    //A 不设置默认为null
+    getWindow().setExitTransition(transition);
+    //B 不设置默认为Fade
+    getWindow().setEnterTransition(transition);
+    //B 不设置默认为EnterTransition
+    getWindow().setReturnTransition(transition);
+    //A 不设置默认为ExitTransition
+    getWindow().setReenterTransition(transition);
+
+    也可以通过主题样式设置：
+
+    <item name="android:windowEnterTransition">@transition/slide_and_fade</item>
+    <item name="android:windowReturnTransition">@transition/return_slide</item>
+
+    页面跳转需要用到如下方式：
+
+    Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle();
+    ActivityCompat.startActivity(activity, new Intent(activity, TransitionEndActivity.class), bundle);
+
+    在页面回退时需要将finish()方法替换成
+    ActivityCompat.finishAfterTransition(this);
+
+    这样一整个流程就实现了简单的页面过渡动画
+
+    具体实现可以参考TransitionStartActivity到TransitionEndActivity的页面过渡
 
 ##### Share Element Transition
 
+    其实质和Content Transition是一样的，只是在其基础上添加了共享的元素之间的动画效果
+    其中Content Transition和Share Element Transition是一同存在的
 
-    问题：退出时点击返回虚拟键会有回退的动画效果，调用finish()方法时，需要将此方法替换为finishAfterTransition()
+    区别：
+    跳转方式
+    Intent intent = new Intent(context, ShareElementTransitionEndActivity.class);
+    ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, pairs);
+    ActivityCompat.startActivity(context, intent,  compat.toBundle());
+
+    使用的是ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pairs)方法跳转
+    pairs是一个可变长度的以键值对形式存储对象的类，里面保存了对应的共享的view和此view的name
+
+    在下一个页面中将需要共享的view设置对应name
+    如：
+        <TextView
+                android:id="@+id/tv_share_element_end"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="angle baby"
+                android:transitionName="share_element_text_view"/>
+
+    就是使用transitionName来添加共享view的名字
+
+    pairs添加方式为
+    Pair[] pairs = new Pair[]{Pair.create(textView, "share_element_text_view")};
+
+    共享元素动画的设置为
+    // 进入动画
+    getWindow().setSharedElementEnterTransition(transition);
+    // 退出动画
+    getWindow().setSharedElementExitTransition(transition);
+    // 重新进入动画
+    getWindow().setSharedElementReenterTransition(transition);
+    // 返回动画
+    getWindow().setSharedElementReturnTransition(transition);
+
+    可以不用设置，默认为move动画效果
+
+    参考ShareElementTransitionStartActivity
+    到ShareElementTransitionEndActivity
+    和ShareElementTransitionNextActivity
+    页面跳转效果的实现
+
+    在页面回退时需要将finish()方法替换成ActivityCompat.finishAfterTransition(this);
 
 
-ViewOverlay???
+##### ActivityCompat和ActivityOptionsCompat
+
+    ActivityCompat类是为了适配不同版本做的兼容类
+    在这里主要使用的是其中的几个方法
+        startActivity()：以Transition的方式启动一个activity
+        finishAfterTransition()：以Transition的方式退出一个activity
+
+    ActivityOptionsCompat类中有几种不同的创建bundle的方式
+        // 创建一个自定义的animation来实现跳转，注意是animation
+        makeCustomAnimation(context, enterResId, exitResId)
+        // 拉伸动画效果，从目标view的左上坐标点开始，宽高为startWidth和startHeight的大小区域过渡到下一个页面
+        // startX和startY为目标偏移量，即X轴和Y轴偏移距离，如果希望从目标view开始可以设置为0
+        makeScaleUpAnimation(source, startX, startY, startWidth, startHeight)
+        // 以一个bitmap的大小区域，以目标view的左上坐标点开始过渡到下一个页面
+        // startX和startY为目标偏移量，即X轴和Y轴偏移距离，如果希望从目标view开始可以设置为0
+        makeThumbnailScaleUpAnimation(source, thumbnail, startX, startY)
+        // 以目标view的左上坐标点开始，宽高为width和height的区域开始过渡到下一个页面
+        // startX和startY为目标偏移量，即X轴和Y轴偏移距离，如果希望从目标view开始可以设置为0
+        makeClipRevealAnimation(source, startX, startY, width, height) // 测试显示此方法没有效果，不知为何
+
+        makeSceneTransitionAnimation()的两个方法在上面已经讲过，不再介绍
+
+
+> 有一个奇怪的问题就是使用ActivityOptionsCompat中除makeSceneTransitionAnimation()之外的几个方式过渡时，点击返回均没有返回的过渡效果
+只能是单向的效果显示，待以后再做研究
+
 
 [Android Transition Framework详解---超炫的动画框架](https://www.jianshu.com/p/e497123652b5)
 

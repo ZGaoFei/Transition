@@ -23,7 +23,9 @@
         <activity android:name=".ui.transition.TransitionEndActivity" />
         <activity android:name=".ui.transition.ShareElementTransitionStartActivity" />
         <activity android:name=".ui.transition.ShareElementTransitionEndActivity" />
-        <activity android:name=".ui.transition.ShareElementTransitionNextActivity"></activity>
+        <activity android:name=".ui.transition.ShareElementTransitionNextActivity" />
+        <activity android:name=".ui.transition.OptionsCompatTestStartActivity" />
+        <activity android:name=".ui.transition.OptionsCompatTestEndActivity"></activity>
     </application>
 
 </manifest>

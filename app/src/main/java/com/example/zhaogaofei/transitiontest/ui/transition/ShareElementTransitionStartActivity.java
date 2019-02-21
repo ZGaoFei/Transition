@@ -29,7 +29,9 @@ public class ShareElementTransitionStartActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_share_element_transition_start);
 
         setTransitions();
@@ -43,7 +45,6 @@ public class ShareElementTransitionStartActivity extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.tv_share_element_start_next);
         tv.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 Pair[] pairs = new Pair[]{Pair.create(imageView, "share_element_image_view"),

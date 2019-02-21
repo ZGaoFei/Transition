@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
@@ -27,14 +28,13 @@ public class ShareElementTransitionEndActivity extends AppCompatActivity {
         context.startActivity(new Intent(context, ShareElementTransitionEndActivity.class));
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public static void start(Context context, Pair[] pairs) {
         /*Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pair).toBundle();
-        activity.startActivity(new Intent(activity, ShareElementTransitionEndActivity.class), bundle);*/
+        ActivityCompat.startActivity(context, new Intent(activity, ShareElementTransitionEndActivity.class), bundle);*/
 
         Intent intent = new Intent(context, ShareElementTransitionEndActivity.class);
         ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, pairs);
-        context.startActivity(intent,  compat.toBundle());
+        ActivityCompat.startActivity(context, intent,  compat.toBundle());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -53,7 +53,6 @@ public class ShareElementTransitionEndActivity extends AppCompatActivity {
         textView = findViewById(R.id.tv_share_element_end);
 
         textView.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 Pair[] pairs = new Pair[]{Pair.create(imageView, "share_element_image_view"),
@@ -63,10 +62,9 @@ public class ShareElementTransitionEndActivity extends AppCompatActivity {
         });
 
         imageView.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                finishAfterTransition();
+                ActivityCompat.finishAfterTransition(ShareElementTransitionEndActivity.this);
             }
         });
     }

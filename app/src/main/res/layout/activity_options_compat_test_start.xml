@@ -5,60 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.transition.OptionsCompatTestStartActivity">
 
     <TextView
-        android:id="@+id/tv_one"
+        android:id="@+id/tv_options_compat_one"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="基本使用和基本类使用效果"
+        android:text="Customer Animation"
         android:textColor="#ffffff" />
 
     <TextView
-        android:id="@+id/tv_two"
+        android:id="@+id/tv_options_compat_two"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="自定义Transition"
+        android:text="Clip Reveal Animation"
         android:textColor="#ffffff" />
 
     <TextView
-        android:id="@+id/tv_three"
+        android:id="@+id/tv_options_compat_three"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="相同的方法实现不同效果"
+        android:text="Scale Up Animation"
         android:textColor="#ffffff" />
 
     <TextView
-        android:id="@+id/tv_four"
+        android:id="@+id/tv_options_compat_four"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="activity 页面 transition"
+        android:text="Thumbnail Scale Up Animation"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/tv_five"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="共享元素的过渡动画"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/tv_six"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:text="ActivityOptionsCompat 测试"
-        android:textColor="#ffffff" />
+    <ImageView
+        android:id="@+id/iv_options_compat"
+        android:layout_width="120dp"
+        android:layout_height="110dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@mipmap/timu"/>
 
 </LinearLayout>

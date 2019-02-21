@@ -23,10 +23,9 @@ public class TransitionEndActivity extends AppCompatActivity {
         context.startActivity(new Intent(context, TransitionEndActivity.class));
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public static void startWithTransition(Activity activity) {
         Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle();
-        activity.startActivity(new Intent(activity, TransitionEndActivity.class), bundle);
+        ActivityCompat.startActivity(activity, new Intent(activity, TransitionEndActivity.class), bundle);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -67,10 +66,9 @@ public class TransitionEndActivity extends AppCompatActivity {
     private void initView() {
         TextView textView = findViewById(R.id.tv_return_top);
         textView.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                finishAfterTransition();
+                ActivityCompat.finishAfterTransition(TransitionEndActivity.this);
             }
         });
     }
